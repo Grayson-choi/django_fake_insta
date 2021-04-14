@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from articles import views # 생성한 앱 articles 폴더 안의 views.py 파일
+# urls.py는 집배원 -> 127.0.0.1:8000/articles/로 접속하면, views.py의 index 함수가 실행됨
 
 urlpatterns = [
+    path('index/', views.index), #
     path('admin/', admin.site.urls),
 ]
