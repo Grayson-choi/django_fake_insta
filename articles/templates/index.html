@@ -1,2 +1,6 @@
-{% comment %} Django에서는 template라고 부르는 HTML 파일은 기본적으로 app 폴더 안의 templates 폴더 안에 위치한다. 설명 {% endcomment %}
-<h1>만나서 반갑습니다.</h1> 
+{% extends 'base.html' %}
+
+{% block content %}
+    {% comment %} Django에서는 template라고 부르는 HTML 파일은 기본적으로 app 폴더 안의 templates 폴더 안에 위치한다. 설명 {% endcomment %}
+    <h1>만나서 반갑습니다.</h1> 
+{% endblock content %}

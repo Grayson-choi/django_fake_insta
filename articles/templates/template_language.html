@@ -1,72 +1,76 @@
-<h3>1. 반복문</h3>
-  {% for menu in menus %}
-    <p>{{ menu }}</p>
-  {% endfor %}
-  <hr>
+{% extends 'base.html' %}
 
-	{% for menu in menus %}
+{% block content %}
+    <h3>1. 반복문</h3>
+    {% for menu in menus %}
+        <p>{{ menu }}</p>
+    {% endfor %}
+    <hr>
+
+    {% for menu in menus %}
     {% comment %} forloop: for문이 반복되는 횟수를 출력 {% endcomment %}
-	  <p>{{ forloop.counter }} {{ menu }}</p>
-	{% endfor %}
-	<hr>
-	
-	{% for user in empty_list %}
-		  <p>{{ user }}</p>
-	{% empty %}
-	<!--empty: for 태그 안에 optional 하게 있음. 빈리스트일 때 출력됨-->
-	    <p>현재 가입한 유저가 없습니다.</p>
-	{% endfor %}
-	<hr>
-<h3>2. 조건문</h3>
-{% if '짜장면' in menus %}
-  <p>짜장면에는 고춧가루지 !</p>
-{% endif %}
-<hr>
+    <p>{{ forloop.counter }} {{ menu }}</p>
+    {% endfor %}
+    <hr>
+    
+    {% for user in empty_list %}
+        <p>{{ user }}</p>
+    {% empty %}
+    <!--empty: for 태그 안에 optional 하게 있음. 빈리스트일 때 출력됨-->
+        <p>현재 가입한 유저가 없습니다.</p>
+    {% endfor %}
+    <hr>
+    <h3>2. 조건문</h3>
+    {% if '짜장면' in menus %}
+    <p>짜장면에는 고춧가루지 !</p>
+    {% endif %}
+    <hr>
 
-{% for menu in menus %}
-	<!--for 태그가 반복한 횟수를 출력함 - index가 1부터 시작(0부터는 counter0)-->
-	{{ forloop.counter }}번째 도는중..
-	<!--forloop.first를 하면 이 for문이 첫번째로 도는거면 True(참)이 된다.-->
-  {% if forloop.first %}
-    <p>짜장면+고춧가루</p>
-  {% else %}
-    <p>{{ menu }}</p>
-  {% endif %}
-{% endfor %}
-<hr>
-<h3>3. lorem ipsum</h3> 
-{% comment %} lorem ipsum은 테스트용 텍스트를 만들어준다. {% endcomment %}
-{% lorem %}
-<hr>
-{% comment %} w는 word 3 단어가 출력됨 {% endcomment %}
-{% lorem 3 w %} 
-<hr>
-{% comment %} random은 무작위 {% endcomment %}
-{% lorem 4 w random %}
-<hr>
-{% comment %} p는 문단 {% endcomment %}
-{% lorem 2 p %}
-<hr>
-<h3>4. template filter </h3>
-{% for message in messages %}
-  {% if message|length > 5 %}
-  <p>{{ message }}는 너무 길어요.</p>
-  {% else %}
-  <p>{{ message }}는 {{ message|length }} 글자</p>
-  {% endif %}
-{% endfor %}
-<hr>
-<h3>5. 문자열(글자수 제한-truncate) template filter </h3>
-{% comment %} 문자를 조건보다 길다면 ... 으로 생략함 {% endcomment %}
-{% comment %} my_sentence = 'Life is short, you need python' {% endcomment %}
-<p>{{ my_sentence|truncatewords:3 }}</p> <!-- 단어 단위로 제한 -> Life is short, ... -->
-<p>{{ my_sentence|truncatechars:3 }}</p> <!-- 문자 단위로 제한(3번째는 포함 x) = ... -->
-<p>{{ my_sentence|truncatechars:10 }}</p> <!-- 10번째는 포함 = Life is... -->
-<hr>
+    {% for menu in menus %}
+        <!--for 태그가 반복한 횟수를 출력함 - index가 1부터 시작(0부터는 counter0)-->
+        {{ forloop.counter }}번째 도는중..
+        <!--forloop.first를 하면 이 for문이 첫번째로 도는거면 True(참)이 된다.-->
+    {% if forloop.first %}
+        <p>짜장면+고춧가루</p>
+    {% else %}
+        <p>{{ menu }}</p>
+    {% endif %}
+    {% endfor %}
+    <hr>
+    <h3>3. lorem ipsum</h3> 
+    {% comment %} lorem ipsum은 테스트용 텍스트를 만들어준다. {% endcomment %}
+    {% lorem %}
+    <hr>
+    {% comment %} w는 word 3 단어가 출력됨 {% endcomment %}
+    {% lorem 3 w %} 
+    <hr>
+    {% comment %} random은 무작위 {% endcomment %}
+    {% lorem 4 w random %}
+    <hr>
+    {% comment %} p는 문단 {% endcomment %}
+    {% lorem 2 p %}
+    <hr>
+    <h3>4. template filter </h3>
+    {% for message in messages %}
+    {% if message|length > 5 %}
+    <p>{{ message }}는 너무 길어요.</p>
+    {% else %}
+    <p>{{ message }}는 {{ message|length }} 글자</p>
+    {% endif %}
+    {% endfor %}
+    <hr>
+    <h3>5. 문자열(글자수 제한-truncate) template filter </h3>
+    {% comment %} 문자를 조건보다 길다면 ... 으로 생략함 {% endcomment %}
+    {% comment %} my_sentence = 'Life is short, you need python' {% endcomment %}
+    <p>{{ my_sentence|truncatewords:3 }}</p> <!-- 단어 단위로 제한 -> Life is short, ... -->
+    <p>{{ my_sentence|truncatechars:3 }}</p> <!-- 문자 단위로 제한(3번째는 포함 x) = ... -->
+    <p>{{ my_sentence|truncatechars:10 }}</p> <!-- 10번째는 포함 = Life is... -->
+    <hr>
 
-<h3>6. 글자 관련 필터</h3>
-<p>{{ 'abc'|length }}</p> <!--3-->
-<p>{{ 'ABC'|lower }}</p>  <!--abc-->
-<p>{{ my_sentence|title }}</p> <!--모든 단어의 첫글자를 대문자로 변경-->
-<p>{{ menus|random }}</p> <!--주어진 리스트에서 요소를 랜덤하게 뽑음-->
-<hr>
+    <h3>6. 글자 관련 필터</h3>
+    <p>{{ 'abc'|length }}</p> <!--3-->
+    <p>{{ 'ABC'|lower }}</p>  <!--abc-->
+    <p>{{ my_sentence|title }}</p> <!--모든 단어의 첫글자를 대문자로 변경-->
+    <p>{{ menus|random }}</p> <!--주어진 리스트에서 요소를 랜덤하게 뽑음-->
+    <hr>
+{% endblock content %}

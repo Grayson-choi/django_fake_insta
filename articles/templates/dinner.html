@@ -1,2 +1,10 @@
-{% comment %} 새로고침 할 때마다 메뉴가 변경 되는 것 보여주기 {% endcomment %}
-<h1>오늘 저녁 메뉴는 {{ pick }}입니다.</h1>
+{% extends 'base.html' %} 
+{% comment %} ! + tab을 이용해서 모든 html 파일에 구조를 잡아준 다음에 코드 유지보수의 어려움 설명 후 template inheritance 개념 설명{% endcomment %}
+{% comment %} extends는 맨 위에 써야 한다는 점 알려주기 {% endcomment %}
+{% comment %} 서버를 껐다가 켜야만 잘 동작함 -> 서버를 켤 때 template 파일을 모아오기 때문이라는 것 설명(코드를 똑같이 쳤는데, base.html을 상속 못 받는 경우) {% endcomment %}
+
+{% block content %}
+    {% comment %} 새로고침 할 때마다 메뉴가 변경 되는 것 보여주기 {% endcomment %}
+    <h1>오늘 저녁 메뉴는 {{ pick }}입니다.</h1>
+{% endblock content %}
+
