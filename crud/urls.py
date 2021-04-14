@@ -19,6 +19,7 @@ from articles import views # 생성한 앱 articles 폴더 안의 views.py 파�
 # urls.py는 집배원 -> 127.0.0.1:8000/articles/로 접속하면, views.py의 index 함수가 실행됨
 
 urlpatterns = [
-    path('index/', views.index), #
+    path('index/', views.index), # url 경로 마지막에 /를 붙이기, 트레일링 comma, app 및 프로젝트 url은 상단 추가 언급
+    path('introduce/', views.introduce),
     path('admin/', admin.site.urls),
 ]
