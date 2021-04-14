@@ -7,3 +7,14 @@ def index(request): # 첫 번째 request
 
 def introduce(request):
     return render(request, "introduce.html")
+
+def greeting(request):
+    foods = ['apple', 'banana', 'coconut',]
+    info = {
+        'name': 'Woong'
+    }
+    context = {
+        'foods': foods,
+        'info': info,
+    } # django 공식 문서에서 권장하는 대로 context를 사용(다른걸 사용해도 동작은 함)
+    return render(request, "greeting.html", context)

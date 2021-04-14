@@ -21,5 +21,6 @@ from articles import views # 생성한 앱 articles 폴더 안의 views.py 파�
 urlpatterns = [
     path('index/', views.index), # url 경로 마지막에 /를 붙이기, 트레일링 comma, app 및 프로젝트 url은 상단 추가 언급
     path('introduce/', views.introduce),
+    path('greeting/', views.greeting),
     path('admin/', admin.site.urls),
 ]
