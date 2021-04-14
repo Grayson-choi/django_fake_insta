@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'articles',  # articles 앱 등록 -> app & 프로젝트 URL은 상단에 추가하는 규칙 설명, trailing comma 설명
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr' # 기존 en-us -> ko-kr로 변경 로켓 페이지 메세지가 한글로 바뀐다. 이 밖에도 다른 안내사항들이 한글로 바뀜 
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul' # 기존 UTC -> Asia/Seoul로 변경 -> 세계협정시에 대한 간단한 언급 +9 시간하면 한국 시간
 
 USE_I18N = True
 
