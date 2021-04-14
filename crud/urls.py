@@ -24,5 +24,7 @@ urlpatterns = [
     path('greeting/', views.greeting),
     path('dinner/', views.dinner),
     path('template_language/', views.template_language),
+    path('throw/', views.throw),
+    path('catch/', views.catch),
     path('admin/', admin.site.urls),
 ]

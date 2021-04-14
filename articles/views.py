@@ -44,3 +44,14 @@ def template_language(request):
         'datetimenow': datetimenow,
     }
     return render(request, 'template_language.html', context)
+
+def throw(request):
+    return render(request, 'throw.html')
+
+def catch(request):
+    # raise 를 활용하여 오류를 발생 시키고, Request.GET.get.message 에 대해서 설명한다.
+    message = request.GET.get('message')
+    context = {
+        'message':message,
+    }
+    return render(request, 'catch.html', context)
