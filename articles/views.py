@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import random
 
 # Create your views here.
 # view는 중간 관리자, urls.py의 요청에 맞게 해당 view를 실행시키면 여기에서 DB등을 처리하고 최종적으로 사용자에게 무언가를 보여준다.
@@ -18,3 +19,11 @@ def greeting(request):
         'info': info,
     } # django 공식 문서에서 권장하는 대로 context를 사용(다른걸 사용해도 동작은 함)
     return render(request, "greeting.html", context)
+
+def dinner(request):
+    menu = ['족발', '햄버거', '치킨', '초밥']
+    pick = random.choice(menu)
+    context = {
+        'pick':pick,
+    } # django 공식 문서에서 권장하는 대로 context를 사용한다는 것 다시 한번 강조
+    return render(request, 'dinner.html', context)
