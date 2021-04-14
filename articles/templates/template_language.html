@@ -47,3 +47,26 @@
 {% comment %} p는 문단 {% endcomment %}
 {% lorem 2 p %}
 <hr>
+<h3>4. template filter </h3>
+{% for message in messages %}
+  {% if message|length > 5 %}
+  <p>{{ message }}는 너무 길어요.</p>
+  {% else %}
+  <p>{{ message }}는 {{ message|length }} 글자</p>
+  {% endif %}
+{% endfor %}
+<hr>
+<h3>5. 문자열(글자수 제한-truncate) template filter </h3>
+{% comment %} 문자를 조건보다 길다면 ... 으로 생략함 {% endcomment %}
+{% comment %} my_sentence = 'Life is short, you need python' {% endcomment %}
+<p>{{ my_sentence|truncatewords:3 }}</p> <!-- 단어 단위로 제한 -> Life is short, ... -->
+<p>{{ my_sentence|truncatechars:3 }}</p> <!-- 문자 단위로 제한(3번째는 포함 x) = ... -->
+<p>{{ my_sentence|truncatechars:10 }}</p> <!-- 10번째는 포함 = Life is... -->
+<hr>
+
+<h3>6. 글자 관련 필터</h3>
+<p>{{ 'abc'|length }}</p> <!--3-->
+<p>{{ 'ABC'|lower }}</p>  <!--abc-->
+<p>{{ my_sentence|title }}</p> <!--모든 단어의 첫글자를 대문자로 변경-->
+<p>{{ menus|random }}</p> <!--주어진 리스트에서 요소를 랜덤하게 뽑음-->
+<hr>
