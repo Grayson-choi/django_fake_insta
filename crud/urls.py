@@ -23,5 +23,6 @@ urlpatterns = [
     path('introduce/', views.introduce),
     path('greeting/', views.greeting),
     path('dinner/', views.dinner),
+    path('template_language/', views.template_language),
     path('admin/', admin.site.urls),
 ]

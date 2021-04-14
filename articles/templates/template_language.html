@@ -1,0 +1,49 @@
+<h3>1. 반복문</h3>
+  {% for menu in menus %}
+    <p>{{ menu }}</p>
+  {% endfor %}
+  <hr>
+
+	{% for menu in menus %}
+    {% comment %} forloop: for문이 반복되는 횟수를 출력 {% endcomment %}
+	  <p>{{ forloop.counter }} {{ menu }}</p>
+	{% endfor %}
+	<hr>
+	
+	{% for user in empty_list %}
+		  <p>{{ user }}</p>
+	{% empty %}
+	<!--empty: for 태그 안에 optional 하게 있음. 빈리스트일 때 출력됨-->
+	    <p>현재 가입한 유저가 없습니다.</p>
+	{% endfor %}
+	<hr>
+<h3>2. 조건문</h3>
+{% if '짜장면' in menus %}
+  <p>짜장면에는 고춧가루지 !</p>
+{% endif %}
+<hr>
+
+{% for menu in menus %}
+	<!--for 태그가 반복한 횟수를 출력함 - index가 1부터 시작(0부터는 counter0)-->
+	{{ forloop.counter }}번째 도는중..
+	<!--forloop.first를 하면 이 for문이 첫번째로 도는거면 True(참)이 된다.-->
+  {% if forloop.first %}
+    <p>짜장면+고춧가루</p>
+  {% else %}
+    <p>{{ menu }}</p>
+  {% endif %}
+{% endfor %}
+<hr>
+<h3>3. lorem ipsum</h3> 
+{% comment %} lorem ipsum은 테스트용 텍스트를 만들어준다. {% endcomment %}
+{% lorem %}
+<hr>
+{% comment %} w는 word 3 단어가 출력됨 {% endcomment %}
+{% lorem 3 w %} 
+<hr>
+{% comment %} random은 무작위 {% endcomment %}
+{% lorem 4 w random %}
+<hr>
+{% comment %} p는 문단 {% endcomment %}
+{% lorem 2 p %}
+<hr>

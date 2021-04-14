@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import random
+from datetime import datetime
 
 # Create your views here.
 # view는 중간 관리자, urls.py의 요청에 맞게 해당 view를 실행시키면 여기에서 DB등을 처리하고 최종적으로 사용자에게 무언가를 보여준다.
@@ -27,3 +28,19 @@ def dinner(request):
         'pick':pick,
     } # django 공식 문서에서 권장하는 대로 context를 사용한다는 것 다시 한번 강조
     return render(request, 'dinner.html', context)
+
+def template_language(request):
+    menus = ['짜장면', '탕수육', '짬뽕', '양장피']
+    my_sentence = 'Life is short, you need python'
+    messages = ['apple', 'banana', 'cucumber', 'mango']
+    datetimenow = datetime.now() # 오늘에 대한 날짜/시각 정보
+    empty_list = []
+
+    context = {
+        'menus': menus,
+        'my_sentence': my_sentence,
+        'messages': messages,
+        'empty_list': empty_list,
+        'datetimenow': datetimenow,
+    }
+    return render(request, 'template_language.html', context)
