@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pages',
     'articles',  # articles 앱 등록 -> app & 프로젝트 URL은 상단에 추가하는 규칙 설명, trailing comma 설명
     'django.contrib.admin',
     'django.contrib.auth',

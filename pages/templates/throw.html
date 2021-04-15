@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="/catch/" method="GET"> <!-- form 태그의 action 속성에 시작과 끝 모두 막아야 한다! (안그러면 주소창에 이상한 url 생김) -->
+<form action="{% url 'catch' %}" method="GET"> <!-- Naming URL patterns를 설명하기 위해서 /pages/catch를 보여주고 코드를 변경하도록 한다. -->
     던질거: <input type="text" name="message"> <!--type을 변경하면서 다른 필드도 보여준다. ex) date-->
     <input type="submit" value="제출">
 </form>
