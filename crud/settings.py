@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'pages',
     'articles',  # articles 앱 등록 -> app & 프로젝트 URL은 상단에 추가하는 규칙 설명, trailing comma 설명
+    'django_extensions', # 왜 django_extensions는 여기에 위치하는지 설명 -> 개인 -> 라이브러리 -> django 순서대로 작성 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
